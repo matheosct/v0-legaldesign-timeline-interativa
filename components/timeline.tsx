@@ -259,7 +259,7 @@ export default function Timeline() {
   const handleMouseEnter = (caseItem: TimelineCase, event: React.MouseEvent) => {
     const rect = event.currentTarget.getBoundingClientRect()
     const containerRect = containerRef.current?.getBoundingClientRect()
-    
+
     if (containerRect) {
       setTooltipPosition({
         x: rect.left - containerRect.left + rect.width / 2,
@@ -285,6 +285,22 @@ export default function Timeline() {
     const yearWidth = 100 / years.length
     const monthWidth = yearWidth / 12
     return yearIndex * yearWidth + (month - 0.5) * monthWidth
+  }
+
+  // Intervalos com fundo colorido
+  const highlightedPeriods = [
+    { startYear: 2020, startMonth: 3, endYear: 2021, endMonth: 3, color: "bg-amber-200/50" },
+    { startYear: 2022, startMonth: 9, endYear: 2022, endMonth: 12, color: "bg-lime-200/50" },
+    { startYear: 2024, startMonth: 9, endYear: 2025, endMonth: 1, color: "bg-violet-200/50" },
+  ]
+
+  const getPeriodStyle = (period: typeof highlightedPeriods[0]) => {
+    const startX = getXPosition(period.startYear, period.startMonth - 0.5)
+    const endX = getXPosition(period.endYear, period.endMonth + 0.5)
+    return {
+      left: `${startX}%`,
+      width: `${endX - startX}%`,
+    }
   }
 
   return (
@@ -321,9 +337,8 @@ export default function Timeline() {
             <div className="bg-white border border-stone-300 rounded-lg shadow-lg p-3 w-56">
               <div className="flex items-center gap-2 mb-2">
                 <div
-                  className={`w-2.5 h-2.5 rounded-full ${
-                    caseColors[getActiveCaseData()?.type || "gray"]
-                  }`}
+                  className={`w-2.5 h-2.5 rounded-full ${caseColors[getActiveCaseData()?.type || "gray"]
+                    }`}
                 ></div>
                 <h3 className="font-semibold text-stone-800 text-sm">
                   {getActiveCaseData()?.title}
@@ -344,6 +359,15 @@ export default function Timeline() {
 
         {/* Cases Area */}
         <div className="relative h-36 mb-1">
+          {/* Highlighted period backgrounds */}
+          {highlightedPeriods.map((period, index) => (
+            <div
+              key={`period-${index}`}
+              className={`absolute top-0 bottom-0 ${period.color}`}
+              style={getPeriodStyle(period)}
+            />
+          ))}
+
           {/* Vertical grid lines for months */}
           <div className="absolute inset-0 flex">
             {years.map((year) => (
@@ -351,7 +375,7 @@ export default function Timeline() {
                 {Array.from({ length: 12 }).map((_, i) => (
                   <div
                     key={`${year}-grid-${i}`}
-                    className="flex-1 border-r border-stone-300/40"
+                    className="flex-1 border-r border-stone-300/40 last:border-r-2 last:border-stone-500"
                   />
                 ))}
               </div>
@@ -366,9 +390,8 @@ export default function Timeline() {
             return (
               <div
                 key={caseItem.id}
-                className={`absolute cursor-pointer transition-all duration-200 ${
-                  caseColors[caseItem.type]
-                } rounded-full shadow-md hover:scale-150 hover:shadow-lg z-10`}
+                className={`absolute cursor-pointer transition-all duration-200 ${caseColors[caseItem.type]
+                  } rounded-full shadow-md hover:scale-150 hover:shadow-lg z-10`}
                 style={{
                   left: `${xPos}%`,
                   top: yPos,
@@ -384,9 +407,21 @@ export default function Timeline() {
         </div>
 
         {/* Year Bars */}
-        <div className="flex w-full">
+        <div className="flex w-full relative">
+          {/* Highlighted period backgrounds extending to year bar */}
+          {highlightedPeriods.map((period, index) => (
+            <div
+              key={`period-bar-${index}`}
+              className={`absolute top-0 h-8 ${period.color}`}
+              style={getPeriodStyle(period)}
+            />
+          ))}
           {years.map((year, index) => (
             <div key={year} className="flex-1 relative">
+              {/* Year separator line - thick and dark */}
+              {index > 0 && (
+                <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-stone-700 z-10" />
+              )}
               {/* Year bar */}
               <div
                 className={`${yearColors[year]} h-8 flex items-center justify-center relative`}
@@ -395,23 +430,21 @@ export default function Timeline() {
                 {/* Arrow indicator */}
                 {index < years.length - 1 && (
                   <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-20">
-                    <div 
+                    <div
                       className="w-3 h-3 rotate-45"
-                      style={{ backgroundColor: yearColors[year].includes('stone-500') ? '#78716c' : 
-                               yearColors[year].includes('stone-400') ? '#a8a29e' :
-                               yearColors[year].includes('amber-600') ? '#d97706' :
-                               yearColors[year].includes('amber-700') ? '#b45309' :
-                               yearColors[year].includes('lime-600') ? '#65a30d' :
-                               yearColors[year].includes('lime-500') ? '#84cc16' : '#a8a29e' }}
+                      style={{
+                        backgroundColor: yearColors[year].includes('stone-500') ? '#78716c' :
+                          yearColors[year].includes('stone-400') ? '#a8a29e' :
+                            yearColors[year].includes('amber-600') ? '#d97706' :
+                              yearColors[year].includes('amber-700') ? '#b45309' :
+                                yearColors[year].includes('lime-600') ? '#65a30d' :
+                                  yearColors[year].includes('lime-500') ? '#84cc16' : '#a8a29e'
+                      }}
                     ></div>
                   </div>
                 )}
               </div>
 
-              {/* Period label */}
-              <div className="bg-stone-200 py-1 text-center border-t border-stone-300">
-                <span className="text-[10px] text-stone-600">{yearPeriods[year]}</span>
-              </div>
             </div>
           ))}
         </div>
