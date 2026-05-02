@@ -289,9 +289,9 @@ export default function Timeline() {
 
   // Intervalos com fundo colorido
   const highlightedPeriods = [
-    { startYear: 2020, startMonth: 3, endYear: 2021, endMonth: 3, color: "bg-amber-200/50" },
-    { startYear: 2022, startMonth: 9, endYear: 2022, endMonth: 12, color: "bg-lime-200/50" },
-    { startYear: 2024, startMonth: 9, endYear: 2025, endMonth: 1, color: "bg-violet-200/50" },
+    { startYear: 2020, startMonth: 3, endYear: 2021, endMonth: 3, color: "bg-amber-200/50", title: "Fase de Análise Documental", titleColor: "text-amber-800" },
+    { startYear: 2022, startMonth: 9, endYear: 2022, endMonth: 12, color: "bg-lime-200/50", title: "Verificação em Campo", titleColor: "text-lime-800" },
+    { startYear: 2024, startMonth: 9, endYear: 2025, endMonth: 1, color: "bg-violet-200/50", title: "Regularização Final", titleColor: "text-violet-800" },
   ]
 
   const getPeriodStyle = (period: typeof highlightedPeriods[0]) => {
@@ -356,6 +356,21 @@ export default function Timeline() {
             <div className="w-3 h-3 bg-white border-r border-b border-stone-300 rotate-45 absolute left-1/2 -translate-x-1/2 -bottom-1.5"></div>
           </div>
         )}
+
+        {/* Period Titles */}
+        <div className="relative h-6 mb-1">
+          {highlightedPeriods.map((period, index) => (
+            <div
+              key={`period-title-${index}`}
+              className="absolute flex items-center justify-center"
+              style={getPeriodStyle(period)}
+            >
+              <span className={`text-xs font-semibold ${period.titleColor} truncate px-1`}>
+                {period.title}
+              </span>
+            </div>
+          ))}
+        </div>
 
         {/* Cases Area */}
         <div className="relative h-36 mb-1">
