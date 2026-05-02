@@ -14,52 +14,53 @@ interface TimelineCase {
   verticalOffset?: number
 }
 
+// Replicando posições exatas da imagem de referência
 const timelineCases: TimelineCase[] = [
-  // 2019
+  // 2019 - círculo verde no início
   {
     id: "1",
     year: 2019,
-    month: 3,
+    month: 1,
     type: "green",
     title: "Abertura do Processo",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tibiculum commodo viverra dolor mi. Viverra nunc s dui nunc. Gravida lestie dignissim nisl a arcu in mi in tellus auctor.",
     verticalOffset: 0,
   },
+  // 2020 - círculos cinza em Mar., verde em 2 Abr., cinza em Mai., cinza em Out., cinza em Dez.
   {
     id: "2",
-    year: 2019,
-    month: 6,
-    type: "gray",
-    title: "Análise Documental",
-    description: "Aliquam tibiculum commodo viverra dolor mi. Viverra nunc.",
-    verticalOffset: 1,
-  },
-  // 2020
-  {
-    id: "3",
     year: 2020,
     month: 3,
     type: "gray",
-    title: "Diligências",
-    description: "Gravida lestie dignissim nisl a arcu in mi in tellus auctor.",
+    title: "Mar.",
+    description: "Análise documental e verificação de conformidade.",
     verticalOffset: 2,
+  },
+  {
+    id: "3",
+    year: 2020,
+    month: 4,
+    type: "green",
+    title: "2 Abr.",
+    description: "Parecer técnico aprovado com ressalvas mínimas.",
+    verticalOffset: 1,
   },
   {
     id: "4",
     year: 2020,
     month: 5,
-    type: "green",
-    title: "Parecer Técnico",
-    description: "Análise técnica realizada com sucesso. Documentação aprovada.",
-    verticalOffset: 1,
+    type: "gray",
+    title: "Mai.",
+    description: "Continuação das diligências documentais.",
+    verticalOffset: 2,
   },
   {
     id: "5",
     year: 2020,
     month: 10,
     type: "gray",
-    title: "Revisão",
-    description: "Revisão dos documentos apresentados pelo requerente.",
+    title: "Out.",
+    description: "Revisão dos documentos apresentados.",
     verticalOffset: 0,
   },
   {
@@ -67,11 +68,11 @@ const timelineCases: TimelineCase[] = [
     year: 2020,
     month: 12,
     type: "gray",
-    title: "Encerramento Fase 1",
-    description: "Conclusão da primeira fase do processo administrativo.",
-    verticalOffset: 1,
+    title: "Dez.",
+    description: "Encerramento da primeira fase.",
+    verticalOffset: 0,
   },
-  // 2021
+  // 2021 - SIT AMET (azul), 1 Fev. (cinza), Mar. (cinza), 2 Abr. (verde), Mai. (cinza)
   {
     id: "7",
     year: 2021,
@@ -86,9 +87,9 @@ const timelineCases: TimelineCase[] = [
     year: 2021,
     month: 2,
     type: "gray",
-    title: "Fev.",
+    title: "1 Fev.",
     description: "Continuação das análises documentais.",
-    verticalOffset: 2,
+    verticalOffset: 3,
   },
   {
     id: "9",
@@ -97,16 +98,16 @@ const timelineCases: TimelineCase[] = [
     type: "gray",
     title: "Mar.",
     description: "Solicitação de documentos complementares.",
-    verticalOffset: 3,
+    verticalOffset: 4,
   },
   {
     id: "10",
     year: 2021,
     month: 4,
     type: "green",
-    title: "Abr.",
+    title: "2 Abr.",
     description: "Aprovação preliminar do projeto.",
-    verticalOffset: 2,
+    verticalOffset: 3,
   },
   {
     id: "11",
@@ -115,9 +116,9 @@ const timelineCases: TimelineCase[] = [
     type: "gray",
     title: "Mai.",
     description: "Verificação de conformidade técnica.",
-    verticalOffset: 1,
+    verticalOffset: 2,
   },
-  // 2022
+  // 2022 - LOREM IPSUM DOLOR SIT (azul), DILIGÊNCIAS (cinza), 7 Nov. (verde), Dez. (verde)
   {
     id: "12",
     year: 2022,
@@ -130,23 +131,14 @@ const timelineCases: TimelineCase[] = [
   {
     id: "13",
     year: 2022,
-    month: 4,
+    month: 5,
     type: "gray",
-    title: "Diligências",
+    title: "DILIGÊNCIAS",
     description: "Verificação in loco das condições do imóvel.",
     verticalOffset: 1,
   },
   {
     id: "14",
-    year: 2022,
-    month: 7,
-    type: "green",
-    title: "Nov.",
-    description: "Relatório de vistoria concluído com parecer favorável.",
-    verticalOffset: 2,
-  },
-  {
-    id: "15",
     year: 2022,
     month: 11,
     type: "green",
@@ -155,17 +147,17 @@ const timelineCases: TimelineCase[] = [
     verticalOffset: 0,
   },
   {
-    id: "16",
+    id: "15",
     year: 2022,
     month: 12,
     type: "green",
     title: "Dez.",
     description: "Finalização das análises do ano.",
-    verticalOffset: 1,
+    verticalOffset: 0,
   },
-  // 2023
+  // 2023 - LOREM IPSUM (azul com IPHAN), DILIGÊNCIAS (cinza)
   {
-    id: "17",
+    id: "16",
     year: 2023,
     month: 1,
     type: "blue",
@@ -174,26 +166,17 @@ const timelineCases: TimelineCase[] = [
     verticalOffset: 0,
   },
   {
-    id: "18",
+    id: "17",
     year: 2023,
-    month: 5,
+    month: 6,
     type: "gray",
-    title: "Diligências",
+    title: "DILIGÊNCIAS",
     description: "Solicitação de adequações no projeto arquitetônico.",
     verticalOffset: 1,
   },
+  // 2024 - ABRISGE (azul), ING (verde), 15 Dez. (verde)
   {
-    id: "19",
-    year: 2023,
-    month: 8,
-    type: "green",
-    title: "Aprovação",
-    description: "Aprovação condicionada do projeto.",
-    verticalOffset: 2,
-  },
-  // 2024
-  {
-    id: "20",
+    id: "18",
     year: 2024,
     month: 1,
     type: "blue",
@@ -202,25 +185,16 @@ const timelineCases: TimelineCase[] = [
     verticalOffset: 0,
   },
   {
-    id: "21",
+    id: "19",
     year: 2024,
-    month: 4,
+    month: 5,
     type: "green",
     title: "ING",
     description: "Parecer técnico favorável emitido.",
     verticalOffset: 1,
   },
   {
-    id: "22",
-    year: 2024,
-    month: 8,
-    type: "gray",
-    title: "Análise",
-    description: "Revisão final dos documentos do processo.",
-    verticalOffset: 2,
-  },
-  {
-    id: "23",
+    id: "20",
     year: 2024,
     month: 12,
     type: "green",
@@ -228,18 +202,18 @@ const timelineCases: TimelineCase[] = [
     description: "Emissão da licença provisória.",
     verticalOffset: 0,
   },
-  // 2025
+  // 2025 - Jan. (verde), DISCUSSÃO (azul)
   {
-    id: "24",
+    id: "21",
     year: 2025,
     month: 1,
     type: "green",
     title: "Jan.",
     description: "Início do monitoramento pós-licença.",
-    verticalOffset: 1,
+    verticalOffset: 0,
   },
   {
-    id: "25",
+    id: "22",
     year: 2025,
     month: 2,
     type: "blue",
@@ -250,7 +224,6 @@ const timelineCases: TimelineCase[] = [
 ]
 
 const years = [2019, 2020, 2021, 2022, 2023, 2024, 2025]
-const months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"]
 
 const yearColors: Record<number, string> = {
   2019: "bg-stone-500",
@@ -276,12 +249,6 @@ const caseColors: Record<CaseType, string> = {
   gray: "bg-gray-500",
   green: "bg-green-600",
   blue: "bg-violet-600",
-}
-
-const caseHoverColors: Record<CaseType, string> = {
-  gray: "hover:bg-gray-600",
-  green: "hover:bg-green-700",
-  blue: "hover:bg-violet-700",
 }
 
 export default function Timeline() {
@@ -310,9 +277,19 @@ export default function Timeline() {
     return timelineCases.find((c) => c.id === activeCase)
   }
 
+  const months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"]
+
+  // Calcular posição X de um caso baseado no ano e mês
+  const getXPosition = (year: number, month: number) => {
+    const yearIndex = years.indexOf(year)
+    const yearWidth = 100 / years.length
+    const monthWidth = yearWidth / 12
+    return yearIndex * yearWidth + (month - 0.5) * monthWidth
+  }
+
   return (
-    <div className="w-full overflow-x-auto bg-stone-100 py-8">
-      <div className="px-4 mb-6">
+    <div className="w-full bg-stone-100 py-8 px-4">
+      <div className="mb-6">
         <h1 className="text-2xl font-bold text-stone-800">Linha do Tempo - Processos</h1>
         <div className="flex gap-6 mt-3">
           <div className="flex items-center gap-2">
@@ -330,18 +307,18 @@ export default function Timeline() {
         </div>
       </div>
 
-      <div ref={containerRef} className="relative min-w-max px-4">
+      <div ref={containerRef} className="relative w-full">
         {/* Tooltip */}
         {activeCase && (
           <div
             className="absolute z-50 pointer-events-none transition-all duration-150"
             style={{
-              left: tooltipPosition.x,
-              top: tooltipPosition.y - 10,
+              left: `${getXPosition(getActiveCaseData()?.year || 2019, getActiveCaseData()?.month || 1)}%`,
+              top: `${130 - (getActiveCaseData()?.verticalOffset || 0) * 22}px`,
               transform: "translate(-50%, -100%)",
             }}
           >
-            <div className="bg-white border border-stone-300 rounded-lg shadow-lg p-4 max-w-xs">
+            <div className="bg-white border border-stone-300 rounded-lg shadow-lg p-3 w-56">
               <div className="flex items-center gap-2 mb-2">
                 <div
                   className={`w-2.5 h-2.5 rounded-full ${
@@ -366,23 +343,37 @@ export default function Timeline() {
         )}
 
         {/* Cases Area */}
-        <div className="relative h-40 mb-2">
+        <div className="relative h-36 mb-1">
+          {/* Vertical grid lines for months */}
+          <div className="absolute inset-0 flex">
+            {years.map((year) => (
+              <div key={`grid-${year}`} className="flex-1 flex">
+                {Array.from({ length: 12 }).map((_, i) => (
+                  <div
+                    key={`${year}-grid-${i}`}
+                    className="flex-1 border-r border-stone-300/40"
+                  />
+                ))}
+              </div>
+            ))}
+          </div>
+
+          {/* Case circles */}
           {timelineCases.map((caseItem) => {
-            const yearIndex = years.indexOf(caseItem.year)
-            const xPosition = yearIndex * (12 * 40) + (caseItem.month - 1) * 40 + 20
-            const yPosition = 120 - (caseItem.verticalOffset || 0) * 28
+            const xPos = getXPosition(caseItem.year, caseItem.month)
+            const yPos = 120 - (caseItem.verticalOffset || 0) * 22
 
             return (
               <div
                 key={caseItem.id}
                 className={`absolute cursor-pointer transition-all duration-200 ${
                   caseColors[caseItem.type]
-                } ${caseHoverColors[caseItem.type]} rounded-full shadow-md hover:scale-125 hover:shadow-lg`}
+                } rounded-full shadow-md hover:scale-150 hover:shadow-lg z-10`}
                 style={{
-                  left: xPosition,
-                  top: yPosition,
-                  width: 14,
-                  height: 14,
+                  left: `${xPos}%`,
+                  top: yPos,
+                  width: 12,
+                  height: 12,
                   transform: "translate(-50%, -50%)",
                 }}
                 onMouseEnter={(e) => handleMouseEnter(caseItem, e)}
@@ -390,86 +381,37 @@ export default function Timeline() {
               />
             )
           })}
-
-          {/* Connecting lines for visual effect */}
-          {timelineCases.map((caseItem, index) => {
-            if (index === 0) return null
-            const prevCase = timelineCases[index - 1]
-            if (prevCase.year !== caseItem.year) return null
-
-            const yearIndex = years.indexOf(caseItem.year)
-            const x1 = yearIndex * (12 * 40) + (prevCase.month - 1) * 40 + 20
-            const y1 = 120 - (prevCase.verticalOffset || 0) * 28
-            const x2 = yearIndex * (12 * 40) + (caseItem.month - 1) * 40 + 20
-            const y2 = 120 - (caseItem.verticalOffset || 0) * 28
-
-            return (
-              <svg
-                key={`line-${index}`}
-                className="absolute top-0 left-0 pointer-events-none"
-                style={{ width: "100%", height: "100%" }}
-              >
-                <line
-                  x1={x1}
-                  y1={y1}
-                  x2={x2}
-                  y2={y2}
-                  stroke="#d1d5db"
-                  strokeWidth="1"
-                  strokeDasharray="4,2"
-                />
-              </svg>
-            )
-          })}
         </div>
 
         {/* Year Bars */}
-        <div className="flex">
-          {years.map((year) => (
-            <div key={year} className="relative" style={{ width: 12 * 40 }}>
-              {/* Month grid lines */}
-              <div className="absolute inset-0 flex">
-                {months.map((_, monthIndex) => (
-                  <div
-                    key={monthIndex}
-                    className="flex-1 border-r border-stone-300/50"
-                    style={{ width: 40 }}
-                  />
-                ))}
-              </div>
-
+        <div className="flex w-full">
+          {years.map((year, index) => (
+            <div key={year} className="flex-1 relative">
               {/* Year bar */}
               <div
-                className={`${yearColors[year]} h-10 flex items-center justify-center relative z-10`}
+                className={`${yearColors[year]} h-8 flex items-center justify-center relative`}
               >
-                <span className="text-white font-bold text-lg">{year}</span>
+                <span className="text-white font-bold text-sm">{year}</span>
                 {/* Arrow indicator */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-20">
-                  <div className={`${yearColors[year]} w-4 h-4 rotate-45`}></div>
-                </div>
+                {index < years.length - 1 && (
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-20">
+                    <div 
+                      className="w-3 h-3 rotate-45"
+                      style={{ backgroundColor: yearColors[year].includes('stone-500') ? '#78716c' : 
+                               yearColors[year].includes('stone-400') ? '#a8a29e' :
+                               yearColors[year].includes('amber-600') ? '#d97706' :
+                               yearColors[year].includes('amber-700') ? '#b45309' :
+                               yearColors[year].includes('lime-600') ? '#65a30d' :
+                               yearColors[year].includes('lime-500') ? '#84cc16' : '#a8a29e' }}
+                    ></div>
+                  </div>
+                )}
               </div>
 
               {/* Period label */}
-              <div className="bg-stone-200 py-1 px-2 text-center border-t border-stone-300">
-                <span className="text-xs text-stone-600">{yearPeriods[year]}</span>
+              <div className="bg-stone-200 py-1 text-center border-t border-stone-300">
+                <span className="text-[10px] text-stone-600">{yearPeriods[year]}</span>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Month labels */}
-        <div className="flex mt-1">
-          {years.map((year) => (
-            <div key={`months-${year}`} className="flex" style={{ width: 12 * 40 }}>
-              {months.map((month, index) => (
-                <div
-                  key={`${year}-${index}`}
-                  className="text-center text-xs text-stone-500"
-                  style={{ width: 40 }}
-                >
-                  {month}
-                </div>
-              ))}
             </div>
           ))}
         </div>
